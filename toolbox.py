@@ -1,6 +1,4 @@
-from NDSparseMatrix import NDSparseMatrix
 from multiprocessing import Pool
-from nestedness_calculator import NestednessCalculator
 from scipy import ndimage
 from scipy.sparse import dok_matrix
 from scipy.special import comb
