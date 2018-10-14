@@ -1,2 +1,2 @@
 # pymaxnodf
-Python package for finding graphs which maximise the NODF-metric
+Python package for finding graphs which maximise the NODF-metric.
