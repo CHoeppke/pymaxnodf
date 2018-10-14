@@ -1,14 +1,6 @@
-from multiprocessing import Pool
-from os import listdir
-from os.path import isfile, join
-from tqdm import tqdm
-import greedySolver2
-import hill_climb
-import multiprocessing
-import numpy as np
 import pandas as pd
-import simulatedAnnealing
-import time
+import algSimulatedAnneal
+import toolbox as tb
 
 # This script solves optimises the NODF-metric for the
 # network considered in the paper. This purpose of this
@@ -19,5 +11,12 @@ if __name__ == "__main__":
     # Read in the list of the network configurations considered.
     fname = "webs.csv"
     DF = pd.read_csv(fname)
-    print(DF)
-
+    for index, row in DF.iterrows():
+        rows = row['rows']
+        cols = row['columns']
+        links = row['links']
+        NODFsong = row['song']
+        print("Simulating web with config ({}, {}, {}).".format(rows, cols, links))
+        mtx = algSimulatedAnneal.optimise(rows, cols, links)
+        NODFSa = tb.nodf(mtx)
+        print("NODF_song = {}\t, NODF_SA = {}.".format(NODFsong, NODFSa))

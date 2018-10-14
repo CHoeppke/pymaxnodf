@@ -1,13 +1,4 @@
-from multiprocessing import Pool
-from os import listdir
-from os.path import isfile, join
-from texttable import Texttable
-from tqdm import tqdm
-import csv
 import greedySolver2
-import hill_climb
-import multiprocessing
-import numpy as np
 import simulatedAnnealing
 import time
 import toolbox
@@ -20,7 +11,6 @@ import toolbox
 
 def optimise(NodesA, NodesB, Edges, verbose = True):
     mtx = greedySolver2.greedySolve(NodesA, NodesB, Edges)
-    # mtx = hill_climb.full_hill_climb(mtx, multithread = True )
     bestMTX = simulatedAnnealing.sim_anneal_opt(mtx)
     return bestMTX
 
